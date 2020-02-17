@@ -4,7 +4,7 @@
     "runtime-version" : "3.34",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
-        "org.freedesktop.Sdk.Extension.rust-nightly"
+        "org.freedesktop.Sdk.Extension.rust-stable"
     ],
     "command" : "shortwave",
     "tags" : [
@@ -20,12 +20,12 @@
         "--device=dri"
     ],
     "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-nightly/bin",
+        "append-path" : "/usr/lib/sdk/rust-stable/bin",
         "env" : {
             "RUSTFLAGS" : "--remap-path-prefix =../",
             "CARGO_HOME" : "/run/build/Shortwave/cargo",
             "RUST_BACKTRACE" : "1",
-            "RUST_LOG" : "shortwave=debug"
+            "G_MESSAGES_DEBUG" : "none"
         }
     },
     "modules" : [
@@ -47,7 +47,18 @@
                 {
                     "type" : "git",
                     "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "tag" : "v0.0.11"
+                    "branch": "libhandy-0-0"
+                }
+            ]
+        },
+        {
+            "name" : "gst-libav",
+            "cleanup" : ["*.la"],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz",
+                    "sha256" : "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
                 }
             ]
         },
@@ -60,8 +71,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/03f23a0a3594fab20968a8c6277a0612/shortwave-0.0.1.tar.xz",
-                    "sha256" : "3178bc9cc4d76ed31fd675c70add7a975546743d79b79ca250a617929281bc26"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/d3b5f66aab8220b123fc229a438652d0/shortwave-0.0.2.tar.xz",
+                    "sha256" : "3a23a0c838da3a118ebd6abfc95218840af1d3526815bcd2c6238630da804cd6"
                 }
             ]
         }
