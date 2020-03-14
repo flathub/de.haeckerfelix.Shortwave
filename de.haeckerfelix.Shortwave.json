@@ -1,15 +1,12 @@
 {
     "app-id" : "de.haeckerfelix.Shortwave",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.34",
+    "runtime-version" : "3.36",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.rust-stable"
     ],
     "command" : "shortwave",
-    "tags" : [
-        "beta"
-    ],
     "finish-args" : [
         "--filesystem=xdg-music",
         "--share=network",
@@ -23,9 +20,7 @@
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
         "env" : {
             "RUSTFLAGS" : "--remap-path-prefix =../",
-            "CARGO_HOME" : "/run/build/Shortwave/cargo",
-            "RUST_BACKTRACE" : "1",
-            "G_MESSAGES_DEBUG" : "none"
+            "CARGO_HOME" : "/run/build/Shortwave/cargo"
         }
     },
     "modules" : [
@@ -47,7 +42,7 @@
                 {
                     "type" : "git",
                     "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "branch": "libhandy-0-0"
+                    "tag": "v0.0.13"
                 }
             ]
         },
@@ -65,14 +60,11 @@
         {
             "name" : "shortwave",
             "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dprofile=beta"
-            ],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/243fa9e429256bcb489d89d39a04f167/shortwave-0.0.3.tar.xz",
-                    "sha256" : "acfcd42cf7b3b77dc06ed096aa7f73f9dbbf7c02e7e86761d8010ed1be3d93d4"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/bb9500d40c2c50c05ca0f27e344902ed/shortwave-1.0.0.tar.xz",
+                    "sha256" : "d174bf19f51cd41fc8567b6e0a74fa7a61c69ee0c2e7ff7fd8ad5f78838eb8b3"
                 }
             ]
         }
