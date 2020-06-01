@@ -9,6 +9,7 @@
     "command" : "shortwave",
     "finish-args" : [
         "--filesystem=xdg-music",
+        "--filesystem=home",
         "--share=network",
         "--share=ipc",
         "--socket=x11",
@@ -63,8 +64,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/c2d6a38025e1bf255bbb5fed58b0ffbc/shortwave-1.0.1.tar.xz",
-                    "sha256" : "7301347914287a35562ab9fce190fd9f1ae7194994d5317fce774f47936ecac7"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/9ad4fed86dbc66b7134bc13c9a4644c1/shortwave-1.1.0.tar.xz",
+                    "sha256" : "5ac6874bca6c3351a4d16d54e5ea584cb1416f586bdd96307081b91068ec4b28"
                 }
             ]
         }
