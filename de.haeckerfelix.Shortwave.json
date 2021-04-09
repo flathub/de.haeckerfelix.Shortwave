@@ -8,32 +8,26 @@
     ],
     "command" : "shortwave",
     "finish-args" : [
-        "--filesystem=xdg-music",
-        "--filesystem=home",
         "--share=network",
         "--share=ipc",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--socket=wayland",
+        "--device=dri",
         "--socket=pulseaudio",
-        "--device=dri"
+        "--filesystem=xdg-music"
     ],
     "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-stable/bin",
-        "env" : {
-            "RUSTFLAGS" : "--remap-path-prefix =../",
-            "CARGO_HOME" : "/run/build/Shortwave/cargo"
-        }
+        "append-path" : "/usr/lib/sdk/rust-stable/bin"
     },
     "modules" : [
         {
-            "name" : "libhandy",
+            "name" : "libadwaita",
             "buildsystem" : "meson",
             "config-opts" : [
                 "-Dintrospection=enabled",
                 "-Dtests=false",
                 "-Dexamples=false",
-                "-Dvapi=false",
-                "-Dglade_catalog=disabled"
+                "-Dvapi=false"
             ],
             "cleanup" : [
                 "/include",
@@ -42,8 +36,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "tag": "v0.0.13"
+                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
+                    "branch" : "main"
                 }
             ]
         },
@@ -64,8 +58,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/df12909bb42afbff933e45da0f220eb4/shortwave-1.1.1.tar.xz",
-                    "sha256" : "dfac0dbc5f0026ec94a83bf3af3f44a02a234c93eedb5943963290536f22be47"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/c72749617af8faf9c3e57a5676dc77cc/shortwave-2.0.0.tar.xz",
+                    "sha256" : "d227f9bff881212574a82579bdd9337cf3758cf960f823d491c1aa754337cdbc"
                 }
             ]
         }
