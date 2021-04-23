@@ -21,6 +21,28 @@
     },
     "modules" : [
         {
+            "name" : "libsass",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/lazka/libsass.git",
+                    "commit" : "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
+                }
+            ]
+        },
+        {
+            "name" : "sassc",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/lazka/sassc.git",
+                    "commit" : "82803377c33247265d779af034eceb5949e78354"
+                }
+            ]
+        },
+        {
             "name" : "libadwaita",
             "buildsystem" : "meson",
             "config-opts" : [
@@ -37,11 +59,10 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
-                    "commit" : "594eb987c57e4d20370cc20520871f230ff02ae2"
+                    "commit" : "9a52895fcd5a906791606400db1028fa0e527854"
                 }
             ]
-        },
-        {
+        },        {
             "name" : "gst-libav",
             "cleanup" : ["*.la"],
             "sources" : [
@@ -58,8 +79,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/c72749617af8faf9c3e57a5676dc77cc/shortwave-2.0.0.tar.xz",
-                    "sha256" : "d227f9bff881212574a82579bdd9337cf3758cf960f823d491c1aa754337cdbc"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/1c5adbe8c3181b2ba81d944a8f9a889d/shortwave-2.0.1.tar.xz",
+                    "sha256" : "feefff2dc24ff8ef7fee5114a68e70cf7df56e4f643e29318e4d0092dcfd92ae"
                 }
             ]
         }
