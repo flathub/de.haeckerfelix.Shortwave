@@ -1,75 +1,51 @@
 {
     "app-id" : "de.haeckerfelix.Shortwave",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "40",
+    "runtime-version" : "42",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.rust-stable"
     ],
     "command" : "shortwave",
     "finish-args" : [
-        "--share=network",
-        "--share=ipc",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--device=dri",
-        "--socket=pulseaudio",
-        "--filesystem=xdg-music"
+    	"--share=network",
+    	"--share=ipc",
+    	"--socket=fallback-x11",
+    	"--socket=wayland",
+    	"--device=dri",
+    	"--socket=pulseaudio",
+    	"--filesystem=xdg-music"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin"
     },
     "modules" : [
         {
-            "name" : "libsass",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/libsass.git",
-                    "commit" : "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
-                }
-            ]
-        },
-        {
-            "name" : "sassc",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/lazka/sassc.git",
-                    "commit" : "82803377c33247265d779af034eceb5949e78354"
-                }
-            ]
-        },
-        {
-            "name" : "libadwaita",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dintrospection=enabled",
-                "-Dtests=false",
-                "-Dexamples=false",
-                "-Dvapi=false"
-            ],
-            "cleanup" : [
-                "/include",
-                "/lib/pkgconfig"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
-                    "commit" : "9a52895fcd5a906791606400db1028fa0e527854"
-                }
-            ]
-        },        {
             "name" : "gst-libav",
+            "buildsystem" : "meson",
             "cleanup" : ["*.la"],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz",
-                    "sha256" : "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
+                    "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.5.tar.xz",
+                    "sha256": "822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548"
+                }
+            ]
+        },
+        {
+            "name": "libshumate",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgir=false",
+                "-Dvapi=false",
+                "-Dgtk_doc=false",
+                "-Dlibsoup3=true"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libshumate/",
+                    "branch": "1.0.0.alpha.1"
                 }
             ]
         },
@@ -79,8 +55,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/1c5adbe8c3181b2ba81d944a8f9a889d/shortwave-2.0.1.tar.xz",
-                    "sha256" : "feefff2dc24ff8ef7fee5114a68e70cf7df56e4f643e29318e4d0092dcfd92ae"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/f1dbdad69cbbbd620f3e9a69ae25e7fc/shortwave-3.0.0.tar.xz",
+                    "sha256" : "888f4ae1e28835bab38cec439734e7c2e3aabdd198d551396d00c582ae2137f8"
                 }
             ]
         }
