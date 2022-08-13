@@ -20,6 +20,17 @@
         "append-path" : "/usr/lib/sdk/rust-stable/bin"
     },
     "modules" : [
+         {
+            "name" : "soup",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libsoup",
+                    "tag": "3.1.1"
+                }
+            ]
+        },
         {
             "name" : "gst-libav",
             "buildsystem" : "meson",
@@ -27,8 +38,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.5.tar.xz",
-                    "sha256": "822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548"
+                    "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.6.tar.xz",
+                    "sha256": "e4e50dcd5a29441ae34de60d2221057e8064ed824bb6ca4dc0fd9ee88fbe9b81"
                 }
             ]
         },
