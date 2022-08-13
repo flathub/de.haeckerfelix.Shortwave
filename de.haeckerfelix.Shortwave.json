@@ -27,7 +27,7 @@
                 {
                     "type" : "git",
                     "url": "https://gitlab.gnome.org/GNOME/libsoup",
-                    "tag": "3.1.1"
+                    "branch": "674c050e8e1a074d7a13f9a599f64be3f69db02d"
                 }
             ]
         },
