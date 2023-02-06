@@ -41,8 +41,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/805bfea4ea893b17b0adeaf7d16c7ddd/shortwave-3.1.0.tar.xz",
-                    "sha256" : "b17041a93a49965d34fed581043bf021f0ee8c129addf55dc7484e721bca2c5f"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/823870933d66693170571fdf09f2e355/shortwave-3.2.0.tar.xz",
+                    "sha256" : "1af4870972973e4410d199abc9a91e5c619b988116fd2419ef0cdbc4262f60dd"
                 }
             ]
         }
