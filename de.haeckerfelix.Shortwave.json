@@ -1,78 +1,48 @@
 {
     "app-id" : "de.haeckerfelix.Shortwave",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.34",
+    "runtime-version" : "43",
     "sdk" : "org.gnome.Sdk",
-    "sdk-extensions" : [
-        "org.freedesktop.Sdk.Extension.rust-stable"
-    ],
+    "sdk-extensions" : ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command" : "shortwave",
-    "tags" : [
-        "beta"
-    ],
     "finish-args" : [
-        "--filesystem=xdg-music",
         "--share=network",
         "--share=ipc",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--socket=wayland",
+        "--device=dri",
         "--socket=pulseaudio",
-        "--device=dri"
+        "--filesystem=xdg-music"
     ],
     "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-stable/bin",
-        "env" : {
-            "RUSTFLAGS" : "--remap-path-prefix =../",
-            "CARGO_HOME" : "/run/build/Shortwave/cargo",
-            "RUST_BACKTRACE" : "1",
-            "G_MESSAGES_DEBUG" : "none"
-        }
+        "append-path" : "/usr/lib/sdk/rust-stable/bin"
     },
     "modules" : [
         {
-            "name" : "libhandy",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dintrospection=enabled",
-                "-Dtests=false",
-                "-Dexamples=false",
+            "name": "libshumate",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgir=false",
                 "-Dvapi=false",
-                "-Dglade_catalog=disabled"
+                "-Dgtk_doc=false",
+                "-Dlibsoup3=true"
             ],
-            "cleanup" : [
-                "/include",
-                "/lib/pkgconfig"
-            ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "branch": "libhandy-0-0"
-                }
-            ]
-        },
-        {
-            "name" : "gst-libav",
-            "cleanup" : ["*.la"],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz",
-                    "sha256" : "c724f612700c15a933c7356fbeabb0bb9571fb5538f8b1b54d4d2d94188deef2"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libshumate/",
+                    "tag": "1.0.1"
                 }
             ]
         },
         {
             "name" : "shortwave",
             "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dprofile=beta"
-            ],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/243fa9e429256bcb489d89d39a04f167/shortwave-0.0.3.tar.xz",
-                    "sha256" : "acfcd42cf7b3b77dc06ed096aa7f73f9dbbf7c02e7e86761d8010ed1be3d93d4"
+                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/805bfea4ea893b17b0adeaf7d16c7ddd/shortwave-3.1.0.tar.xz",
+                    "sha256" : "b17041a93a49965d34fed581043bf021f0ee8c129addf55dc7484e721bca2c5f"
                 }
             ]
         }
