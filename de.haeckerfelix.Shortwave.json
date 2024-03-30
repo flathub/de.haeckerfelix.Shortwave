@@ -1,7 +1,7 @@
 {
     "app-id" : "de.haeckerfelix.Shortwave",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "45",
+    "runtime-version" : "46",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : ["org.freedesktop.Sdk.Extension.rust-stable"],
     "command" : "shortwave",
@@ -18,23 +18,6 @@
         "append-path" : "/usr/lib/sdk/rust-stable/bin"
     },
     "modules" : [
-        {
-            "name": "libshumate",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dgir=false",
-                "-Dvapi=false",
-                "-Dgtk_doc=false",
-                "-Dlibsoup3=true"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libshumate/",
-                    "tag": "1.0.1"
-                }
-            ]
-        },
         {
             "name" : "shortwave",
             "buildsystem" : "meson",
