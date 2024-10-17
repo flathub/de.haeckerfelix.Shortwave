@@ -1,48 +1,78 @@
 {
-    "app-id" : "de.haeckerfelix.Shortwave",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "45",
-    "sdk" : "org.gnome.Sdk",
-    "sdk-extensions" : ["org.freedesktop.Sdk.Extension.rust-stable"],
-    "command" : "shortwave",
-    "finish-args" : [
+    "id": "de.haeckerfelix.Shortwave",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "47",
+    "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable",
+        "org.freedesktop.Sdk.Extension.llvm18"
+    ],
+    "command": "shortwave",
+    "finish-args": [
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
+        "--talk-name=org.gtk.vfs.*",
+        "--filesystem=xdg-run/gvfsd",
         "--filesystem=xdg-music"
     ],
-    "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-stable/bin"
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm18/bin"
     },
-    "modules" : [
+    "modules": [
         {
-            "name": "libshumate",
+            "name": "glycin-loaders",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dgir=false",
-                "-Dvapi=false",
-                "-Dgtk_doc=false",
-                "-Dlibsoup3=true"
+                "-Dglycin-loaders=true",
+                "-Dlibglycin=false"
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libshumate/",
-                    "tag": "1.0.1"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/glycin/1.1/glycin-1.1.1.tar.xz",
+                    "sha256": "560ee42167c1ed22826618e61d83e49140db5bf47a65a9ba8ece2cd73d2a4aa8"
                 }
             ]
         },
         {
-            "name" : "shortwave",
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "libshumate",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--libdir=/app/lib",
+                "-Dgir=false",
+                "-Dvapi=false",
+                "-Dgtk_doc=false",
+                "-Ddemos=false",
+                "-Dvector_renderer=false"
+            ],
+            "sources": [
                 {
-                    "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/World/Shortwave/uploads/823870933d66693170571fdf09f2e355/shortwave-3.2.0.tar.xz",
-                    "sha256" : "1af4870972973e4410d199abc9a91e5c619b988116fd2419ef0cdbc4262f60dd"
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libshumate.git",
+                    "tag": "1.3.0"
+                }
+            ]
+        },
+        {
+            "name": "shortwave",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/World/Shortwave.git",
+                    "commit": "63b09426eb86bf0aa3808e650eacb0196a4c6f87"
+                },
+                "generated-sources.json",
+                {
+                    "type": "shell",
+                    "commands": [
+                        "mkdir .cargo",
+                        "cp cargo/config .cargo/"
+                    ]
                 }
             ]
         }
