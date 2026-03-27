@@ -1,7 +1,7 @@
 {
     "id": "de.haeckerfelix.Shortwave",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "49",
+    "runtime-version": "50",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
@@ -38,7 +38,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libshumate.git",
-                    "tag": "1.4.0"
+                    "tag": "1.4.0",
+                    "commit": "06021e35f0d479612fb1a3af91a73ba562175e03"
                 }
             ]
         },
@@ -49,6 +50,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/World/Shortwave.git",
+                    "tag": "5.1.0",
                     "commit": "7851c36db14f6218fffadbc8a9598e0bbb24986a"
                 },
                 "generated-sources.json",
