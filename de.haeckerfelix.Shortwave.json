@@ -22,6 +22,10 @@
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm21/bin"
     },
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+    ],
     "modules": [
         {
             "name": "libshumate",
